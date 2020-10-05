@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KomodoInsurance_Challenge
+namespace KomodoInsurance_Challenge_ClassLibrary
 {
-    class Program
+    class BadgeRepository
     {
-        static void Main(string[] args)
-        {
 
-        }
     }
 }
