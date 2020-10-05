@@ -10,7 +10,8 @@ namespace KomodoInsurance_Challenge
     {
         static void Main(string[] args)
         {
-
+            ProgramUI ui = new ProgramUI();
+            ui.Run();
         }
     }
 }
