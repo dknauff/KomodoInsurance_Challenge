@@ -19,34 +19,34 @@ namespace KomodoInsurance_Challenge_ClassLibrary
             bool wasAdded = (_badgeDictionary.Count > startingCount) ? true : false;
             return wasAdded;
         }
-       
+
         public Dictionary<int, List<string>> GetAllBadges()
         {
             return _badgeDictionary;
         }
 
-        public Badge GetBadgeByID(int badgeID)
+        public List<string> GetDoorListByID(int badgeID)
         {
-            foreach (Badge singleBadge in _badgeDictionary.Keys)
+            foreach (KeyValuePair<int, List<string>> singleBadge in _badgeDictionary)
             {
-                if (singleBadge.BadgeID == badgeID)
+                if (singleBadge.Key == badgeID)
                 {
-                    return singleBadge;
+                    return singleBadge.Value;
                 }
             }
             return null;
         }
 
-        public bool UpdateExisitingBadgeDoors(string newDoorAccess)
+        public int GetBadgeByID(int badgeID)
         {
-
+            foreach (KeyValuePair<int, List<string>> singleBadge in _badgeDictionary)
+            {
+                if (singleBadge.Key == badgeID)
+                {
+                    return singleBadge.Key;
+                }
+            }
+            return 0;
         }
-
-        public bool DeleteAllDoorsOnSingleBadge()
-        {
-
-        }
-
-
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace KomodoInsurance_Challenge_ClassLibrary
 {
     public class Badge
+
     {
         public int BadgeID { get; set; }
         public List<string> DoorAccess { get; set; } = new List<string>();
