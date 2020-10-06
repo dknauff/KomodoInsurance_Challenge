@@ -1,11 +1,7 @@
 ﻿using KomodoInsurance_Challenge_ClassLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace KomodoInsurance_Challenge
 {
@@ -86,6 +82,7 @@ namespace KomodoInsurance_Challenge
         private void EditABadge()
         {
             Badge oldBadge = new Badge();
+            Dictionary<int, List<string>> dictionary = _badgeRepository.GetAllBadges();
 
             bool runBadgeMenu = true;
             while (runBadgeMenu == true)
@@ -95,7 +92,7 @@ namespace KomodoInsurance_Challenge
                 ListAllBadgesToEdit();
                 string userInput = Console.ReadLine();
                 int badgeIDInt = Int32.Parse(userInput);
-                if (badgeIDInt == oldBadge.BadgeID)
+                if (dictionary.ContainsKey(badgeIDInt))
                 {
                     Console.Clear();
                     Console.WriteLine("What would you like to do? \n" +
@@ -110,14 +107,21 @@ namespace KomodoInsurance_Challenge
                             Console.WriteLine("List a door this badge needs access to:");
                             string badgeDoorInput = Console.ReadLine();
                             oldBadge.DoorAccess.Add(badgeDoorInput);
-                            _badgeRepository.CreateNewBadge(oldBadge.BadgeID, oldBadge.DoorAccess);
+                            Console.Clear();
+                            Console.WriteLine("So, editing the door access was the only thing I wasn't able to get to work in time, so for now you will receive this message instead of what you actually wanted.  I will give it another shot in the future. =)\n" +
+                                "Press any key to continue...");
+                            Console.ReadKey();
+
                             break;
                         case "2":
                             Console.Clear();
                             Console.WriteLine("What door do you wish to remove?");
                             string removeDoor = Console.ReadLine();
                             oldBadge.DoorAccess.Remove(removeDoor);
-                            _badgeRepository.CreateNewBadge(oldBadge.BadgeID, oldBadge.DoorAccess);
+                            Console.Clear();
+                            Console.WriteLine("So, editing the door access was the only thing I wasn't able to get to work in time, so for now you will receive this message instead of what you actually wanted.  I will give it another shot in the future. =)\n" +
+                                "Press any key to continue...");
+                            Console.ReadKey();
                             break;
                         case "3":
                             runBadgeMenu = false;

@@ -24,29 +24,5 @@ namespace KomodoInsurance_Challenge_ClassLibrary
         {
             return _badgeDictionary;
         }
-
-        public List<string> GetDoorListByID(int badgeID)
-        {
-            foreach (KeyValuePair<int, List<string>> singleBadge in _badgeDictionary)
-            {
-                if (singleBadge.Key == badgeID)
-                {
-                    return singleBadge.Value;
-                }
-            }
-            return null;
-        }
-
-        public int GetBadgeByID(int badgeID)
-        {
-            foreach (KeyValuePair<int, List<string>> singleBadge in _badgeDictionary)
-            {
-                if (singleBadge.Key == badgeID)
-                {
-                    return singleBadge.Key;
-                }
-            }
-            return 0;
-        }
     }
 }
